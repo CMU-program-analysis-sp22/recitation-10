@@ -1,6 +1,7 @@
 package instrument;
 
 import org.objectweb.asm.ClassVisitor;
+import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
@@ -9,8 +10,8 @@ public class ArithmeticClassVisitor extends ClassVisitor {
     private static final int API = Opcodes.ASM9;
 
     /** Constructor */
-    public ArithmeticClassVisitor() {
-        super(API);
+    public ArithmeticClassVisitor(ClassWriter cw) {
+        super(API, cw);
     }
 
     @Override
@@ -21,10 +22,6 @@ public class ArithmeticClassVisitor extends ClassVisitor {
                 //TODO: Change instances of subtraction to addition!
                 //  (currently, this doesn't change anything)
                 super.visitInsn(opcode);
-
-                if(opcode == Opcodes.ISUB) {
-                    super.visitInsn(Opcodes.IADD);
-                } else super.visitInsn(opcode);
             }
         };
     }

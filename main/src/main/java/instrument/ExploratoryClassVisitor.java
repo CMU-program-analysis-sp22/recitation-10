@@ -34,6 +34,12 @@ public class ExploratoryClassVisitor extends ClassVisitor {
                 super.visitLdcInsn(value);
                 System.out.println("visitLdcInsn visiting " + value);
             }
+
+            @Override
+            public void visitFieldInsn(int opcode, String owner, String name, String descriptor) {
+                super.visitFieldInsn(opcode, owner, name, descriptor);
+                System.out.println("visitFieldInsn visiting:\n\t" + opcode + "\n\t" + owner + "\n\t" + name + "\n\t" + descriptor);
+            }
         };
     }
 }
