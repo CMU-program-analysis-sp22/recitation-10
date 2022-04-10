@@ -33,13 +33,7 @@ public class ExploreGoal extends AbstractMojo {
             throw new MojoExecutionException(e.toString());
         }
         ClassReader reader = new ClassReader(classBytes);
-        ClassWriter writer = new ClassWriter(reader, COMPUTE_FRAMES | COMPUTE_MAXS);
-        ClassVisitor visitor = new ExploratoryClassVisitor(writer);
+        ClassVisitor visitor = new ExploratoryClassVisitor();
         reader.accept(visitor, 0);
-        try(FileOutputStream fos = new FileOutputStream(f, false)) {
-            fos.write(writer.toByteArray());
-        } catch (IOException e) {
-            throw new MojoExecutionException(e.toString());
-        }
     }
 }

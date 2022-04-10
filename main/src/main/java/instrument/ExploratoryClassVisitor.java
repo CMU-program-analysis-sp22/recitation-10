@@ -10,8 +10,8 @@ public class ExploratoryClassVisitor extends ClassVisitor {
     private static final int API = Opcodes.ASM9;
 
     /** Constructor */
-    public ExploratoryClassVisitor(ClassWriter cw) {
-        super(API, cw);
+    public ExploratoryClassVisitor() {
+        super(API);
     }
 
     @Override
