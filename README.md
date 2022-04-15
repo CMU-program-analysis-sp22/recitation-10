@@ -132,7 +132,7 @@ mvn clean install
 ```
 in the `inst-plugin` folder and test it by running
 ```shell script
-mvn recitation-10:coverage -Dclass="SelectionSort"
+mvn recitation-10:repair -Dclass="SelectionSort"
 mvn compile exec:java -Dexec.mainClass="SelectionSort" -Dexec.args="3 2 1"
 ```
 in the `sample-programs` folder.
